@@ -9,7 +9,7 @@
     "dev": "node --watch server.js",
     "test": "node --test",
     "ia": "node scripts/prueba-ia.js",
-    "tunel": "ssh -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -R 80:localhost:3000 nokey@localhost.run"
+    "tunel": "npx -y cloudflared@latest tunnel --url http://localhost:3000"
   },
   "keywords": [
     "saac",

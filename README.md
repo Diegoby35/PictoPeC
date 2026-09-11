@@ -44,8 +44,8 @@ una URL HTTPS sin desplegar nada:
 npm run tunel
 ```
 
-Abre un túnel SSH contra `localhost.run` (sin instalar nada, sin cuenta) e
-imprime una dirección `https://…`. Con ella:
+Levanta un túnel de Cloudflare (sin cuenta; `npx` descarga el binario la
+primera vez) e imprime una dirección `https://….trycloudflare.com`. Con ella:
 
 - **Android / Chrome** — sale solo el banner *Instalar aplicación*; si no,
   menú ⋮ → *Instalar aplicación*.
@@ -55,6 +55,10 @@ imprime una dirección `https://…`. Con ella:
 El túnel da una URL distinta cada vez y vive mientras el proceso esté abierto,
 así que sirve para probar, no para quedársela. Para eso hay que desplegar el
 servidor en algún sitio con dominio fijo.
+
+`localhost.run` también sirve y no necesita descargar nada
+(`ssh -R 80:localhost:3000 nokey@localhost.run`), pero cierra el túnel a los
+pocos minutos sin tráfico, así que se cae justo mientras enseñas la app.
 
 Una vez instalada, el service worker guarda pictogramas, locuciones y
 tipografías: lo que ya se ha usado sigue funcionando sin conexión, que en un

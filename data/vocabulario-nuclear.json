@@ -1,0 +1,972 @@
+{
+  "_comentario": [
+    "Vocabulario del modo de construir frases tocando.",
+    "",
+    "GENERADO. No editar a mano: se reescribe con",
+    "  node scripts/genera-vocabulario.js",
+    "Las palabras candidatas están en ese script, y las que no tienen",
+    "pictograma en ARASAAC se caen solas, así que el tablero nunca sale con",
+    "huecos.",
+    "",
+    "En SAAC \"vocabulario nuclear\" es un término técnico: el conjunto reducido",
+    "de palabras de alta frecuencia que cubre la mayor parte de lo que alguien",
+    "dice a diario. Por eso los primeros grupos son verbos y palabras de",
+    "función, no sustantivos: con \"querer\", \"más\" y \"no\" se comunica mucho más",
+    "que con cien nombres de objetos. Los grupos de cosas concretas vienen",
+    "después, y para lo que no esté, el modo tiene buscador.",
+    "",
+    "El campo \"tipo\" es la categoría Fitzgerald, la que colorea las celdas."
+  ],
+  "grupos": [
+    {
+      "nombre": "Respuesta",
+      "palabras": [
+        {
+          "texto": "sí",
+          "busca": "sí",
+          "tipo": "social"
+        },
+        {
+          "texto": "no",
+          "busca": "no",
+          "tipo": "social"
+        },
+        {
+          "texto": "no sé",
+          "busca": "no lo sé",
+          "tipo": "social"
+        },
+        {
+          "texto": "parar",
+          "busca": "parar",
+          "tipo": "social"
+        },
+        {
+          "texto": "esperar",
+          "busca": "esperar",
+          "tipo": "social"
+        }
+      ]
+    },
+    {
+      "nombre": "Personas",
+      "palabras": [
+        {
+          "texto": "yo",
+          "busca": "yo",
+          "tipo": "persona"
+        },
+        {
+          "texto": "tú",
+          "busca": "tú",
+          "tipo": "persona"
+        },
+        {
+          "texto": "mamá",
+          "busca": "mamá",
+          "tipo": "persona"
+        },
+        {
+          "texto": "papá",
+          "busca": "papá",
+          "tipo": "persona"
+        },
+        {
+          "texto": "hermano",
+          "busca": "hermano",
+          "tipo": "persona"
+        },
+        {
+          "texto": "hermana",
+          "busca": "hermana",
+          "tipo": "persona"
+        },
+        {
+          "texto": "abuelo",
+          "busca": "abuelo",
+          "tipo": "persona"
+        },
+        {
+          "texto": "abuela",
+          "busca": "abuela",
+          "tipo": "persona"
+        },
+        {
+          "texto": "familia",
+          "busca": "familia",
+          "tipo": "persona"
+        },
+        {
+          "texto": "amigo",
+          "busca": "amigo",
+          "tipo": "persona"
+        },
+        {
+          "texto": "profesora",
+          "busca": "profesora",
+          "tipo": "persona"
+        },
+        {
+          "texto": "médico",
+          "busca": "médico",
+          "tipo": "persona"
+        },
+        {
+          "texto": "nosotros",
+          "busca": "nosotros",
+          "tipo": "persona"
+        }
+      ]
+    },
+    {
+      "nombre": "Acciones",
+      "palabras": [
+        {
+          "texto": "querer",
+          "busca": "querer",
+          "tipo": "accion"
+        },
+        {
+          "texto": "necesitar",
+          "busca": "necesitar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "ir",
+          "busca": "ir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "venir",
+          "busca": "venir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "comer",
+          "busca": "comer",
+          "tipo": "accion"
+        },
+        {
+          "texto": "beber",
+          "busca": "beber",
+          "tipo": "accion"
+        },
+        {
+          "texto": "jugar",
+          "busca": "jugar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "ayudar",
+          "busca": "ayudar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "mirar",
+          "busca": "mirar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "escuchar",
+          "busca": "escuchar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "hablar",
+          "busca": "hablar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "dar",
+          "busca": "dar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "tener",
+          "busca": "tener",
+          "tipo": "accion"
+        },
+        {
+          "texto": "poder",
+          "busca": "poder",
+          "tipo": "accion"
+        },
+        {
+          "texto": "hacer",
+          "busca": "hacer",
+          "tipo": "accion"
+        },
+        {
+          "texto": "dormir",
+          "busca": "dormir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "doler",
+          "busca": "doler",
+          "tipo": "accion"
+        },
+        {
+          "texto": "terminar",
+          "busca": "terminar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "gustar",
+          "busca": "gustar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "abrir",
+          "busca": "abrir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "cerrar",
+          "busca": "cerrar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "pintar",
+          "busca": "pintar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "leer",
+          "busca": "leer",
+          "tipo": "accion"
+        },
+        {
+          "texto": "escribir",
+          "busca": "escribir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "cantar",
+          "busca": "cantar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "bailar",
+          "busca": "bailar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "pasear",
+          "busca": "pasear",
+          "tipo": "accion"
+        },
+        {
+          "texto": "nadar",
+          "busca": "nadar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "lavarse",
+          "busca": "lavar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "ducharse",
+          "busca": "duchar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "vestirse",
+          "busca": "vestir",
+          "tipo": "accion"
+        },
+        {
+          "texto": "descansar",
+          "busca": "descansar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "trabajar",
+          "busca": "trabajar",
+          "tipo": "accion"
+        },
+        {
+          "texto": "aprender",
+          "busca": "aprender",
+          "tipo": "accion"
+        }
+      ]
+    },
+    {
+      "nombre": "Preguntas",
+      "palabras": [
+        {
+          "texto": "qué",
+          "busca": "qué",
+          "tipo": "otro"
+        },
+        {
+          "texto": "dónde",
+          "busca": "dónde",
+          "tipo": "otro"
+        },
+        {
+          "texto": "quién",
+          "busca": "quién",
+          "tipo": "otro"
+        },
+        {
+          "texto": "cuándo",
+          "busca": "cuándo",
+          "tipo": "otro"
+        },
+        {
+          "texto": "cómo",
+          "busca": "cómo",
+          "tipo": "otro"
+        },
+        {
+          "texto": "por qué",
+          "busca": "por qué",
+          "tipo": "otro"
+        }
+      ]
+    },
+    {
+      "nombre": "Cantidad",
+      "palabras": [
+        {
+          "texto": "más",
+          "busca": "más",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "menos",
+          "busca": "menos",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "mucho",
+          "busca": "mucho",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "poco",
+          "busca": "poco",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "otro",
+          "busca": "otro",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "todo",
+          "busca": "todo",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "nada",
+          "busca": "nada",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "otra vez",
+          "busca": "otra vez",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "grande",
+          "busca": "grande",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "pequeño",
+          "busca": "pequeño",
+          "tipo": "cualidad"
+        }
+      ]
+    },
+    {
+      "nombre": "Cómo me siento",
+      "palabras": [
+        {
+          "texto": "contento",
+          "busca": "contento",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "triste",
+          "busca": "triste",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "cansado",
+          "busca": "cansado",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "enfadado",
+          "busca": "enfadado",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "miedo",
+          "busca": "miedo",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "dolor",
+          "busca": "dolor",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "nervioso",
+          "busca": "nervioso",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "tranquilo",
+          "busca": "tranquilo",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "aburrido",
+          "busca": "aburrido",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "enfermo",
+          "busca": "enfermo",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "sorpresa",
+          "busca": "sorpresa",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "hambre",
+          "busca": "hambre",
+          "tipo": "cualidad"
+        },
+        {
+          "texto": "sed",
+          "busca": "sed",
+          "tipo": "cualidad"
+        }
+      ]
+    },
+    {
+      "nombre": "Sitios",
+      "palabras": [
+        {
+          "texto": "casa",
+          "busca": "casa",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "baño",
+          "busca": "cuarto de baño",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "colegio",
+          "busca": "colegio",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "clase",
+          "busca": "clase",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "parque",
+          "busca": "parque",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "calle",
+          "busca": "calle",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "cocina",
+          "busca": "cocina",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "patio",
+          "busca": "patio",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "tienda",
+          "busca": "tienda",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "hospital",
+          "busca": "hospital",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "piscina",
+          "busca": "piscina",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "playa",
+          "busca": "playa",
+          "tipo": "lugar"
+        },
+        {
+          "texto": "campo",
+          "busca": "campo",
+          "tipo": "lugar"
+        }
+      ]
+    },
+    {
+      "nombre": "Comida",
+      "palabras": [
+        {
+          "texto": "agua",
+          "busca": "agua",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "leche",
+          "busca": "leche",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "zumo",
+          "busca": "zumo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pan",
+          "busca": "pan",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "fruta",
+          "busca": "fruta",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "manzana",
+          "busca": "manzana",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "plátano",
+          "busca": "plátano",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "galleta",
+          "busca": "galleta",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "bocadillo",
+          "busca": "bocadillo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "yogur",
+          "busca": "yogur",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pasta",
+          "busca": "pasta",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "arroz",
+          "busca": "arroz",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pollo",
+          "busca": "pollo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "huevo",
+          "busca": "huevo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "chocolate",
+          "busca": "chocolate",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "sopa",
+          "busca": "sopa",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "queso",
+          "busca": "queso",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "comida",
+          "busca": "comida",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Cosas",
+      "palabras": [
+        {
+          "texto": "juguete",
+          "busca": "juguete",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "libro",
+          "busca": "libro",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "música",
+          "busca": "música",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pelota",
+          "busca": "pelota",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "lápiz",
+          "busca": "lápiz",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "cuaderno",
+          "busca": "cuaderno",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "mochila",
+          "busca": "mochila",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "móvil",
+          "busca": "móvil",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "ordenador",
+          "busca": "ordenador",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "televisión",
+          "busca": "televisión",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "cama",
+          "busca": "cama",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "mesa",
+          "busca": "mesa",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "silla",
+          "busca": "silla",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "puerta",
+          "busca": "puerta",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "jabón",
+          "busca": "jabón",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "toalla",
+          "busca": "toalla",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "cepillo de dientes",
+          "busca": "cepillo de dientes",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "medicina",
+          "busca": "medicina",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Ropa",
+      "palabras": [
+        {
+          "texto": "camiseta",
+          "busca": "camiseta",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pantalón",
+          "busca": "pantalón",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "abrigo",
+          "busca": "abrigo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "zapatos",
+          "busca": "zapatos",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "calcetines",
+          "busca": "calcetines",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "gorro",
+          "busca": "gorro",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pijama",
+          "busca": "pijama",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Mi cuerpo",
+      "palabras": [
+        {
+          "texto": "cabeza",
+          "busca": "cabeza",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "barriga",
+          "busca": "barriga",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "mano",
+          "busca": "mano",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pie",
+          "busca": "pie",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "boca",
+          "busca": "boca",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "ojo",
+          "busca": "ojo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "oreja",
+          "busca": "oreja",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "diente",
+          "busca": "diente",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "nariz",
+          "busca": "nariz",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "brazo",
+          "busca": "brazo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pierna",
+          "busca": "pierna",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "espalda",
+          "busca": "espalda",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Animales",
+      "palabras": [
+        {
+          "texto": "perro",
+          "busca": "perro",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "gato",
+          "busca": "gato",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pájaro",
+          "busca": "pájaro",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "pez",
+          "busca": "pez",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "caballo",
+          "busca": "caballo",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "conejo",
+          "busca": "conejo",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Transporte",
+      "palabras": [
+        {
+          "texto": "coche",
+          "busca": "coche",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "autobús",
+          "busca": "autobús",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "tren",
+          "busca": "tren",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "avión",
+          "busca": "avión",
+          "tipo": "objeto"
+        },
+        {
+          "texto": "bicicleta",
+          "busca": "bicicleta",
+          "tipo": "objeto"
+        }
+      ]
+    },
+    {
+      "nombre": "Cuándo",
+      "palabras": [
+        {
+          "texto": "ahora",
+          "busca": "ahora",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "después",
+          "busca": "después",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "antes",
+          "busca": "antes",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "hoy",
+          "busca": "hoy",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "mañana",
+          "busca": "mañana",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "ayer",
+          "busca": "ayer",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "siempre",
+          "busca": "siempre",
+          "tipo": "tiempo"
+        },
+        {
+          "texto": "nunca",
+          "busca": "nunca",
+          "tipo": "tiempo"
+        }
+      ]
+    },
+    {
+      "nombre": "Cortesía",
+      "palabras": [
+        {
+          "texto": "hola",
+          "busca": "hola",
+          "tipo": "social"
+        },
+        {
+          "texto": "adiós",
+          "busca": "adiós",
+          "tipo": "social"
+        },
+        {
+          "texto": "por favor",
+          "busca": "por favor",
+          "tipo": "social"
+        },
+        {
+          "texto": "gracias",
+          "busca": "gracias",
+          "tipo": "social"
+        },
+        {
+          "texto": "perdón",
+          "busca": "perdón",
+          "tipo": "social"
+        },
+        {
+          "texto": "buenos días",
+          "busca": "buenos días",
+          "tipo": "social"
+        },
+        {
+          "texto": "buenas noches",
+          "busca": "buenas noches",
+          "tipo": "social"
+        }
+      ]
+    }
+  ]
+}

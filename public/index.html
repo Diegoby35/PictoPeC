@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PictoPeC · Frases en pictogramas</title>
+<meta name="description" content="Convierte una frase escrita o dictada en una secuencia de pictogramas ARASAAC para comunicación aumentativa y alternativa.">
+
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#FF5A3C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PictoPeC">
+<link rel="apple-touch-icon" href="/iconos/apple-touch-icon.png">
+<link rel="icon" href="/iconos/icono-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Atkinson Hyperlegible la diseñó el Braille Institute para lectores con baja
+     visión: sus letras están deliberadamente desambiguadas. En una herramienta
+     de accesibilidad la elección de tipografía es contenido, no adorno. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fredoka:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <a href="#/" id="volver" class="boton boton--volver" hidden>Inicio</a>
+
+  <div class="marca">
+    <span class="marca-icono" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <div>
+      <h1>PictoPeC</h1>
+      <p class="marca-lema">Frases en pictogramas</p>
+    </div>
+  </div>
+
+  <button type="button" id="instalar" class="boton boton--instalar" hidden>Instalar app</button>
+</header>
+
+<main class="contenido">
+
+<!-- ══════════════════════════════════ Inicio ══════════════════════════════ -->
+<section id="vista-inicio" class="vista">
+  <h2 class="vista-titulo">¿Qué quieres hacer?</h2>
+
+  <div class="mosaico">
+    <a class="azulejo" href="#/escribir">
+      <img src="https://static.arasaac.org/pictograms/2380/2380_500.png" alt="" width="500" height="500">
+      <span class="azulejo-nombre">Escribir una frase</span>
+      <span class="azulejo-pie">La escribes y la ves en pictogramas</span>
+    </a>
+
+    <a class="azulejo" href="#/construir">
+      <img src="https://static.arasaac.org/pictograms/6222/6222_500.png" alt="" width="500" height="500">
+      <span class="azulejo-nombre">Construir una frase</span>
+      <span class="azulejo-pie">Tocando pictogramas, sin escribir</span>
+    </a>
+
+    <a class="azulejo" href="#/historias">
+      <img src="https://static.arasaac.org/pictograms/2364/2364_500.png" alt="" width="500" height="500">
+      <span class="azulejo-nombre">Historias sociales</span>
+      <span class="azulejo-pie">Las de ARASAAC, para anticipar situaciones</span>
+    </a>
+
+    <a class="azulejo" href="#/guardados" id="azulejo-guardados" hidden>
+      <img src="https://static.arasaac.org/pictograms/3233/3233_500.png" alt="" width="500" height="500">
+      <span class="azulejo-nombre">Mis frases</span>
+      <span class="azulejo-pie" id="azulejo-guardados-pie">Las que has guardado</span>
+    </a>
+  </div>
+
+  <p class="inicio-pie">
+    Los pictogramas y las voces son de <strong>ARASAAC</strong>, el banco libre de más de
+    40.000 pictogramas del Gobierno de Aragón.
+  </p>
+</section>
+
+<!-- ═════════════════════════════════ Escribir ═════════════════════════════ -->
+<section id="vista-escribir" class="vista" hidden>
+
+  <div class="entrada">
+    <div class="campo">
+      <label class="oculto-visualmente" for="frase">Frase que convertir en pictogramas</label>
+      <textarea id="frase" rows="2" maxlength="500" enterkeyhint="go"
+                placeholder="Escribe una frase. Por ejemplo: vamos a comer al parque"></textarea>
+      <button type="button" id="dictar" class="boton-microfono"
+              aria-label="Dictar la frase con el micrófono">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="26" height="26">
+          <path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z"/>
+          <path fill="currentColor" d="M18 12a1 1 0 1 0-2 0 4 4 0 0 1-8 0 1 1 0 1 0-2 0 6 6 0 0 0 5 5.91V20H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-2.09A6 6 0 0 0 18 12Z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="acciones">
+      <button type="button" id="crear" class="boton boton--principal">Crear pictogramas</button>
+      <button type="button" id="limpiar" class="boton boton--suave">Limpiar</button>
+
+      <label class="nivel" id="nivel-campo">
+        <span class="etiqueta">Nivel</span>
+        <select id="nivel">
+          <option value="basico">Básico</option>
+          <option value="intermedio" selected>Intermedio</option>
+          <option value="avanzado">Avanzado</option>
+        </select>
+      </label>
+    </div>
+    <p class="nivel-nota" id="nivel-nota" hidden></p>
+
+    <div class="ejemplos">
+      <span class="etiqueta">Prueba</span>
+      <button type="button" class="pildora" data-ejemplo="Vamos a comer al parque">Vamos a comer al parque</button>
+      <button type="button" class="pildora" data-ejemplo="No quiero ir al médico">No quiero ir al médico</button>
+      <button type="button" class="pildora" data-ejemplo="Cuéntame un cuento antes de dormir">Cuéntame un cuento antes de dormir</button>
+      <button type="button" class="pildora" data-ejemplo="Dame agua por favor">Dame agua por favor</button>
+    </div>
+  </div>
+
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <section id="resultado" class="resultado" hidden aria-label="Secuencia de pictogramas">
+    <div class="resultado-barra">
+      <p class="frase-eco" id="frase-eco"></p>
+      <div class="herramientas">
+        <button type="button" id="leer" class="boton boton--acento">Leer en voz alta</button>
+        <button type="button" id="guardar" class="boton boton--suave">Guardar</button>
+        <button type="button" id="presentar" class="boton boton--suave">Presentar</button>
+        <button type="button" id="imprimir" class="boton boton--suave">Imprimir</button>
+      </div>
+    </div>
+
+    <ol id="secuencia" class="secuencia"></ol>
+
+    <div class="estado" id="estado"></div>
+    <p class="pista">Toca cualquier pictograma para cambiarlo por otro.</p>
+
+    <!-- Para el cuidador, no para el tablero: qué se ha cambiado de la frase
+         original y, sobre todo, dónde se ha puesto algo que nadie dijo. -->
+    <section id="simplificacion" class="simplificacion" hidden>
+      <h3 class="simplificacion-titulo">Qué he simplificado</h3>
+      <p class="simplificacion-resumen" id="simplificacion-resumen"></p>
+      <ul class="cambios" id="simplificacion-cambios"></ul>
+    </section>
+  </section>
+
+</section>
+
+<!-- ════════════════════════════════ Construir ═════════════════════════════ -->
+<section id="vista-construir" class="vista" hidden>
+
+  <!-- La frase en construcción se queda pegada arriba: en una tablet hay que
+       poder ver lo que se lleva dicho mientras se recorre el vocabulario. -->
+  <div class="constructor">
+    <ol id="tira" class="tira"></ol>
+    <p class="tira-vacia" id="tira-vacia">Toca pictogramas para ir formando tu frase.</p>
+
+    <div class="constructor-acciones">
+      <button type="button" id="decir" class="boton boton--acento" disabled>Decir la frase</button>
+      <button type="button" id="borrar-ultimo" class="boton boton--suave" disabled>Borrar el último</button>
+      <button type="button" id="vaciar" class="boton boton--suave" disabled>Vaciar</button>
+    </div>
+
+    <div id="frase-natural" class="frase-natural" hidden>
+      <p class="frase-natural-texto" id="frase-natural-texto"></p>
+      <div class="frase-natural-acciones">
+        <button type="button" id="repetir" class="boton boton--principal">Repetir</button>
+        <button type="button" id="guardar-construida" class="boton boton--suave">Guardar</button>
+      </div>
+      <p class="frase-natural-aviso" id="frase-natural-aviso" hidden></p>
+    </div>
+  </div>
+
+  <!-- El vocabulario nuclear cubre el día a día; para lo demás, los 40.000
+       pictogramas de ARASAAC a un buscador de distancia. -->
+  <div class="buscador-vocabulario">
+    <label class="oculto-visualmente" for="buscar-picto">Buscar cualquier pictograma</label>
+    <input type="search" id="buscar-picto" placeholder="¿No está? Busca cualquier palabra…" autocomplete="off">
+    <button type="button" id="buscar-picto-btn" class="boton boton--principal">Buscar</button>
+  </div>
+
+  <section id="resultados-busqueda" class="grupo-vocabulario" hidden>
+    <h3 id="resultados-busqueda-titulo"></h3>
+    <div class="rejilla-vocabulario" id="resultados-busqueda-rejilla"></div>
+  </section>
+
+  <div id="vocabulario" class="vocabulario" aria-label="Vocabulario"></div>
+
+</section>
+
+<!-- ═══════════════════════════ Historias sociales ═════════════════════════ -->
+<section id="vista-historias" class="vista" hidden>
+  <h2 class="vista-titulo">Historias sociales</h2>
+  <p class="vista-entradilla">
+    Una historia social cuenta por adelantado qué va a pasar en una situación y qué se
+    espera, para poder anticiparla en vez de vivirla de golpe. Estas están hechas y
+    revisadas por profesionales, y publicadas en ARASAAC.
+  </p>
+
+  <div class="buscador-vocabulario">
+    <label class="oculto-visualmente" for="buscar-historia">Buscar una historia social</label>
+    <input type="search" id="buscar-historia" placeholder="dentista, peluquería, enfadarse…" autocomplete="off">
+    <button type="button" id="buscar-historia-btn" class="boton boton--principal">Buscar</button>
+  </div>
+
+  <div class="ejemplos">
+    <span class="etiqueta">Prueba</span>
+    <button type="button" class="pildora" data-historia="dentista">dentista</button>
+    <button type="button" class="pildora" data-historia="peluquería">peluquería</button>
+    <button type="button" class="pildora" data-historia="cumpleaños">cumpleaños</button>
+    <button type="button" class="pildora" data-historia="médico">médico</button>
+    <button type="button" class="pildora" data-historia="colegio">colegio</button>
+  </div>
+
+  <div id="lista-historias" class="lista-historias"></div>
+</section>
+
+<!-- ════════════════════════════════ Guardados ═════════════════════════════ -->
+<section id="vista-guardados" class="vista" hidden>
+  <h2 class="vista-titulo">Mis frases</h2>
+  <div id="lista-guardados" class="lista-guardados"></div>
+</section>
+
+</main>
+
+<button type="button" id="salir-presentacion" class="salir-presentacion" hidden>Salir de presentación</button>
+
+<footer class="pie">
+  <p>
+    Pictogramas y locuciones propiedad del <strong>Gobierno de Aragón</strong>, creados por
+    Sergio Palao para <a href="https://arasaac.org" target="_blank" rel="noopener">ARASAAC</a>,
+    bajo licencia Creative Commons BY-NC-SA.
+  </p>
+</footer>
+
+<dialog id="panel" class="panel">
+  <form method="dialog" class="panel-cabecera">
+    <div>
+      <h2 id="panel-titulo">Cambiar pictograma</h2>
+      <p class="panel-sub" id="panel-sub"></p>
+    </div>
+    <button class="boton-cerrar" aria-label="Cerrar">&times;</button>
+  </form>
+
+  <div class="panel-buscador">
+    <label class="oculto-visualmente" for="panel-busqueda">Buscar otra palabra</label>
+    <input type="search" id="panel-busqueda" placeholder="Buscar otra palabra…" autocomplete="off">
+    <button type="button" id="panel-buscar" class="boton boton--principal">Buscar</button>
+  </div>
+
+  <div id="panel-rejilla" class="panel-rejilla"></div>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

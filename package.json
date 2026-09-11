@@ -1,0 +1,28 @@
+{
+  "name": "pictopec",
+  "version": "0.1.0",
+  "description": "Convierte texto o voz en una secuencia de pictogramas ARASAAC para apoyar la comunicación aumentativa y alternativa (SAAC).",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test",
+    "ia": "node scripts/prueba-ia.js"
+  },
+  "keywords": [
+    "saac",
+    "aac",
+    "pictogramas",
+    "arasaac",
+    "accesibilidad",
+    "autismo"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "optionalDependencies": {
+    "@google/genai": "^2.22.0"
+  }
+}

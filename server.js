@@ -7,6 +7,7 @@
  */
 
 import { createServer } from 'node:http';
+import { networkInterfaces } from 'node:os';
 import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, normalize, extname } from 'node:path';
@@ -174,9 +175,23 @@ const servidor = createServer(async (req, res) => {
   }
 });
 
+/** IPs de la red local, para abrir la app desde el móvil sin buscarlas. */
+function direccionesDeRed() {
+  return Object.values(networkInterfaces())
+    .flat()
+    .filter((i) => i && i.family === 'IPv4' && !i.internal)
+    .map((i) => i.address);
+}
+
 servidor.listen(PUERTO, async () => {
   const { disponible, motivo, proveedor, modelo } = await estaDisponible();
-  console.log(`\n  PictoPeC  ->  http://localhost:${PUERTO}`);
-  console.log(`  Motor de IA: ${disponible ? `${proveedor} · ${modelo}` : `no disponible (${motivo})`}`);
-  console.log('  Pictogramas y locuciones: ARASAAC, CC BY-NC-SA\n');
+
+  console.log(`\n  PictoPeC`);
+  console.log(`    en este equipo   http://localhost:${PUERTO}`);
+  for (const ip of direccionesDeRed()) {
+    console.log(`    en el móvil      http://${ip}:${PUERTO}`);
+  }
+  console.log(`\n  Motor de IA: ${disponible ? `${proveedor} · ${modelo}` : `no disponible (${motivo})`}`);
+  console.log('  Pictogramas y locuciones: ARASAAC, CC BY-NC-SA');
+  console.log('\n  Para instalarla en el móvil hace falta HTTPS:  npm run tunel\n');
 });

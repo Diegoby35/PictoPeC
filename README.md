@@ -22,15 +22,43 @@ La app abre en un **hub** con pictogramas grandes desde el que se elige qué hac
 escribir una frase, construirla tocando pictogramas, buscar historias sociales o
 abrir las frases guardadas.
 
-## Instalarla como app
+## Desde el móvil o la tablet
 
-PictoPeC es una PWA: desde Chrome o Edge aparece un botón **Instalar app** en la
-barra superior, y queda como una aplicación con su icono y su ventana propia, sin
-barra de navegador. En un iPad, *Compartir → Añadir a pantalla de inicio*.
+Al arrancar, el servidor imprime las direcciones, incluida la de la red local:
 
-El service worker guarda los pictogramas, las locuciones y las tipografías, así
-que una vez usada una palabra sigue funcionando sin conexión. Una tablet en un
-aula no siempre tiene wifi.
+```
+  PictoPeC
+    en este equipo   http://localhost:3000
+    en el móvil      http://192.168.1.42:3000
+```
+
+Con esa segunda dirección se abre desde cualquier móvil o tablet conectado al
+mismo wifi. Basta para probarla.
+
+**Para instalarla como app hace falta HTTPS.** Los navegadores solo ofrecen
+instalar, y solo registran el service worker, en un contexto seguro; `localhost`
+está exento pero una IP de red local por HTTP no. La forma más rápida de tener
+una URL HTTPS sin desplegar nada:
+
+```bash
+npm run tunel
+```
+
+Abre un túnel SSH contra `localhost.run` (sin instalar nada, sin cuenta) e
+imprime una dirección `https://…`. Con ella:
+
+- **Android / Chrome** — sale solo el banner *Instalar aplicación*; si no,
+  menú ⋮ → *Instalar aplicación*.
+- **iPhone / iPad** — hay que abrirla en **Safari**: *Compartir* → *Añadir a
+  pantalla de inicio*.
+
+El túnel da una URL distinta cada vez y vive mientras el proceso esté abierto,
+así que sirve para probar, no para quedársela. Para eso hay que desplegar el
+servidor en algún sitio con dominio fijo.
+
+Una vez instalada, el service worker guarda pictogramas, locuciones y
+tipografías: lo que ya se ha usado sigue funcionando sin conexión, que en un
+aula sin wifi fiable es la diferencia entre servir y no servir.
 
 ## El problema que resuelve
 
